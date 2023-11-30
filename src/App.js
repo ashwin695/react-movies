@@ -9,7 +9,9 @@ function App() {
   const [error, setError] = useState(null)
   const [cancelBtn, setCancelBtn] = useState(false)
 
-  
+  useEffect(function(){
+    fetchMoviesHandler()
+  },[])
   
   const btnHandler = () => {
     setCancelBtn(false)
