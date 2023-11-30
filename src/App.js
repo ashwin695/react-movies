@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
-
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import {Form} from 'react-bootstrap';
 import MoviesList from './components/MoviesList';
 import './App.css';
 
@@ -69,8 +71,34 @@ function App() {
   return (
     <React.Fragment>
       <section>
+        <form id="add-form" action="#" class="container form1" style={{ display:'flex', flexDirection:'column' }}>
+          <div style={{ padding: 10 }}>
+              <label>Title </label>
+          </div>
+          <input type="text" name="title" onChange={(e)=>setTitle(e.target.value)} required />
+
+          <div style={{ padding: 10 }}>
+              <label>Opening Text </label>
+          </div>
+          <textarea rows="8" type="text" onChange={(e)=>setText(e.target.value)} name="opening_text" required />
+          
+          <div style={{ padding: 10 }}>
+              <label>Release Date </label>
+          </div>
+          <input type="text" onChange={(e)=>setDate(e.target.value)} name="release_date" required />
+
+          <div style={{ padding: 20 }}>
+            <Button variant="outline-secondary" id="button-addon2">
+                Add Movies
+            </Button>
+          </div>
+        </form>
+      </section>
+
+      <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
+
       <section>
         {content}
         {
